@@ -26,7 +26,7 @@ def scrape_from_cat():
                          config.wallpaper_categories_path+cat).text
         links = re.findall(config.wallpaper_collection_regex, r)
         for col in links:
-            if not col in COLLECTIONS_STRINGS:
+            if col not in COLLECTIONS_STRINGS:
                 COLLECTIONS_STRINGS.append(col)
 
 
@@ -35,7 +35,7 @@ def scrape_from_search(text):
                      config.wallpaper_search_path+text).text
     links = re.findall(config.wallpaper_collection_regex, r)
     for col in links:
-        if not col in COLLECTIONS_STRINGS:
+        if col not in COLLECTIONS_STRINGS:
             COLLECTIONS_STRINGS.append(col)
 
 

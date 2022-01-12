@@ -14,7 +14,7 @@ async def search_for_collections(name: str):
     extracted_wlprs = re.findall(
         config.wallpaper_collection_regex, pack_response)
     extracted_wlprs = list(set(extracted_wlprs))
-    if len(extracted_wlprs) > 0:
+    if extracted_wlprs:
         return extracted_wlprs
     else:
         raise HTTPException(status.HTTP_404_NOT_FOUND, 'bo result found')

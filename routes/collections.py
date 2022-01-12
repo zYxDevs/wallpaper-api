@@ -41,7 +41,7 @@ async def get_wallpapers_from_collection(name: str):
         config.wallpaper_api_url + config.wallpaper_collection_path + name).text
     extracted_wlprs = re.findall(config.wallpaper_regex, pack_response)
     extracted_wlprs = list(set(extracted_wlprs))
-    if len(extracted_wlprs) > 0:
+    if extracted_wlprs:
         return extracted_wlprs
     else:
         raise HTTPException(status.HTTP_404_NOT_FOUND, 'no wallpaper found')
